@@ -75,7 +75,7 @@ namespace GuessTheNumber
                                 }
                             case var output when (numberGuess == chosenNumber):
                                 {
-                                    Console.WriteLine("Congratulations! >w< You guessed it! [Number being {0}]", numberGuess);
+                                    Console.WriteLine("Congratulations! :D You guessed it! [Number being {0}]", numberGuess);
                                     endCycle = !endCycle; //Make true to false to break the input.
                                     break;
                                 }
