@@ -13,7 +13,7 @@ namespace GuessTheNumber
             // ====== Encodings (not necessary) ====== //
             Console.OutputEncoding = Encoding.UTF8;
             // ====== Bool for Cycle ====== //
-            bool endCycle = true;
+            bool endCycle = false;
             // ====== Random Number Generated ====== //
             Random randomNum = new Random();
             int chosenNumber = randomNum.Next(1, 101); // [1; 100] is chosen. RRandom (1,101) in Clickteam Fusion also does this.
@@ -29,7 +29,7 @@ namespace GuessTheNumber
         {
             CenterText("==== Welcome to \"Guess the number\"! ====");
             CenterText("Game: " + game_Counter);
-            while (endCycle)
+            while (!endCycle) // If false, go on.
             {
                 Console.Write("Guess a number in [1; 100]: "); //'\u2208' is "belongs"
                 string playerGuess = Console.ReadLine();
@@ -76,7 +76,7 @@ namespace GuessTheNumber
                             case var output when (numberGuess == chosenNumber):
                                 {
                                     Console.WriteLine("Congratulations! :D You guessed it! [Number being {0}]", numberGuess);
-                                    endCycle = !endCycle; //Make true to false to break the input.
+                                    endCycle = !endCycle; //Make false to true to break the input.
                                     break;
                                 }
                         }
@@ -103,7 +103,7 @@ namespace GuessTheNumber
                     {
                         // == Next game settings: == //
                         chosenNumber = randomNum.Next(1, 101);
-                        endCycle = !endCycle; // Setting it to true.
+                        endCycle = !endCycle; // Setting it to false.
                         game_Counter += 1; // Increasing the game count. Also counter++ works.
                         // Free the console. //
                         Console.Clear();
